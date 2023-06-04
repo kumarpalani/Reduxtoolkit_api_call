@@ -26,13 +26,9 @@ function App() {
     <Container>
       <div className="App">
         <h1>Using Redux toolkit to fetch data from API</h1>
-        <p>Please select checkbox to enble each table key value</p>
+        <p>Please select key to enable values</p>
 
         <Rowrender users={users} />
-
-        {/* <Usertable items={items} index={index} />;    */}
-
-        {/* {rowKey !== " " ? <Usertable items={users} keyItem={rowKey} /> : ""} */}
       </div>
     </Container>
   );
