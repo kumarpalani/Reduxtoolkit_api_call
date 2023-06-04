@@ -23,7 +23,9 @@ const Columnrender = ({ items, userKey }) => {
           {items.map((key, j) => {
             return (
               <tr key={key}>
-                <td key={j}>{key[userKey[userKey.length - 1]]}</td>
+                {userKey.map((k, i) => {
+                  return <td key={j}>{key[k]}</td>;
+                })}
               </tr>
             );
           })}
