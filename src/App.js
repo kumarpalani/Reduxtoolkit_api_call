@@ -7,19 +7,18 @@ import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import Usertable from "./component/Usertable";
 import { Row } from "react-bootstrap";
+import Rowrender from "./component/Rowrender";
+import Columnrender from "./component/Columnrender";
 
 function App() {
   const dispatch = useDispatch();
   const { users, loading } = useSelector((state) => state.user);
-  const { isLoading, setIsLoading } = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [rowKey, setRowkey] = useState("");
   const firstObject = Object.keys(users);
   useEffect(() => {
     dispatch(getUsers());
   }, []);
-
-  const getKey = (e) => {
-    alert(e.target.getAttribute("data-item"));
-  };
 
   if (loading) return "...Loading...";
 
@@ -28,35 +27,12 @@ function App() {
       <div className="App">
         <h1>Using Redux toolkit to fetch data from API</h1>
         <p>Please select checkbox to enble each table key value</p>
-        <Table responsive striped bordered hover variant="dark">
-          <thead>
-            <tr>
-              <th> Key </th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((items, index) => {
-              return (
-                index === 0 &&
-                Object.keys(items).map((key) => {
-                  return (
-                    <tr key={index + key}>
-                      <td
-                        data-item={key}
-                        onClick={(e) => getKey(e)}
-                        key={key + items.id}
-                      >
-                        {key}
-                      </td>
-                    </tr>
-                  );
-                })
-              );
-            })}
 
-            {/* <Usertable items={items} index={index} />;    */}
-          </tbody>
-        </Table>
+        <Rowrender users={users} />
+
+        {/* <Usertable items={items} index={index} />;    */}
+
+        {/* {rowKey !== " " ? <Usertable items={users} keyItem={rowKey} /> : ""} */}
       </div>
     </Container>
   );
