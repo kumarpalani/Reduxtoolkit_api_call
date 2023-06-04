@@ -4,11 +4,11 @@ import Form from "react-bootstrap/Form";
 import Columnrender from "./Columnrender";
 
 const Rowrender = ({ users }) => {
-  const [rowKey, setRowkey] = useState("");
+  const [rowKey, setRowkey] = useState([]);
   const getKey = (e) => {
     const rowKeyval = e.target.getAttribute("data-item");
     alert(rowKeyval);
-    setRowkey(rowKeyval);
+    setRowkey([...rowKey, rowKeyval]);
   };
   return (
     <>

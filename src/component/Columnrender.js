@@ -14,21 +14,16 @@ const Columnrender = ({ items, userKey }) => {
       <Table responsive striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>
-              {" "}
-              <Form.Check onChange={handleChange} aria-label="option 1" />
-            </th>
-            <th>{userKey} </th>
-            <th> Value</th>
+            {userKey.map((k, i) => {
+              return <th key={i}>{k} </th>;
+            })}
           </tr>
         </thead>
         <tbody>
-          {items.map((key) => {
+          {items.map((key, j) => {
             return (
               <tr key={key}>
-                <td></td>
-                <td key={key + items.id}>{key[userKey]}</td>
-                <td key={items.id + key}>{checked ? items[key] : ""}</td>
+                <td key={j}>{key[userKey[userKey.length - 1]]}</td>
               </tr>
             );
           })}
