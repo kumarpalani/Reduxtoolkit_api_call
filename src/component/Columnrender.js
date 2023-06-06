@@ -11,7 +11,7 @@ const Columnrender = ({ items, userKey }) => {
       {/* <p>
     {checked ? 'Checked' : 'Not checked'}
     </p>  */}
-      <Table responsive striped bordered hover variant="dark">
+      <Table className="mt-1" responsive striped bordered hover variant="dark">
         <thead>
           <tr>
             {userKey.map((k, i) => {

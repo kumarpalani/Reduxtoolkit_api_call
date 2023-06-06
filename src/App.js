@@ -26,7 +26,7 @@ function App() {
     <Container>
       <div className="App">
         <h1>Using Redux toolkit to fetch data from API</h1>
-        <p>Please select key to enable values</p>
+        <p>Please select the checkbox and click submit to enable key values</p>
 
         <Rowrender users={users} />
       </div>
