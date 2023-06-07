@@ -99,7 +99,7 @@ const Rowrender = ({ users }) => {
           </tbody>
         </Table>
 
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Apply" />
       </form>
 
       <Columnrender items={users} userKey={selectedFilters} />
