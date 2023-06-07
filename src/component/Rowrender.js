@@ -25,19 +25,24 @@ const Rowrender = ({ users }) => {
     event.preventDefault();
 
     const inputs = Array.from(event.target);
-    const valuechange = [];
-    inputs.forEach((input) => {
-      if (input.checked) {
-        if (selectedFilters.includes(input.value)) return true;
-        valuechange.push(input.value);
+
+    let selectedFiltersArr = [...selectedFilters];
+
+    inputs.map((item) => {
+      if (item.checked) {
+        if (selectedFiltersArr.includes(item.value)) return true;
+
+        selectedFiltersArr.push(item.value);
       } else {
-        if (selectedFilters.includes(input.value)) {
-          setSelectedFilers(selectedFilters.filter((x) => x !== input.value));
+        if (selectedFiltersArr.includes(item.value)) {
+          selectedFiltersArr = selectedFiltersArr.filter(
+            (n) => n !== item.value
+          );
         }
       }
     });
 
-    setSelectedFilers((prev) => [...prev, ...valuechange]);
+    setSelectedFilers(selectedFiltersArr);
   };
 
   ////onclick on key row
