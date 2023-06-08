@@ -6,11 +6,26 @@
   height: 40vmin;
   pointer-events: none;
 }
+.mt-1 {
+  margin-top: 3.25rem !important;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+.navbar-brand > img {
+  padding: 7px 14px;
+  width: 35%;
+}
+#signinDiv {
+  display: flex;
+  justify-content: center;
 }
 
 .App-header {
